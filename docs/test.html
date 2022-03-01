@@ -1,0 +1,163 @@
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link inactive active" href="#default-primary-step-1">第一步<br>登记信息</a>
+    </li>
+    <li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-2">第二步<br>维修委托书</a>
+    </li>
+    <li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-3">第三步<br>维修派工单</a>
+    </li>
+    <li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-4">第四步<br>总费用</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-bar"></i>
+                    客户及车辆信息
+                </h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <h4>客户信息</h4>
+                    <hr class="bg-primary border-2 border-top border-primary">
+                    <div class="row">
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCustomID">客户编号
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required is-invalid" id="inputCustomID" placeholder="客户编号">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCustomName">客户名称
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required is-invalid" id="inputCustomName" placeholder="客户名称">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCustomType">客户性质</label>
+                            <select class="form-control select2" data-bs-toggle="select2">
+                                <!-- <option value="-1">请选择</option> -->
+                                <option value="1">单位</option>
+                                <option value="2">个人</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputDiscountRate">折扣率
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="number" class="form-control required" id="inputDiscountRate" min=0 max=1 step="0.1" placeholder="折扣率">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCustomContact">联系人
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required" id="inputCustomContact" placeholder="联系人">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCustomPhone">联系电话
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" inputmode="numeric" class="form-control required is-invalid" id="inputCustomPhone" placeholder="联系电话">
+                        </div>
+                    </div>
+                    <h4>车辆信息</h4>
+                    <hr class="bg-primary border-2 border-top border-primary">
+                    <div class="row">
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCarID">车牌号
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required is-invalid" id="inputCarID" placeholder="车牌号">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCarColor">车辆颜色
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required is-invalid" id="inputCarColor" placeholder="车辆颜色">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCarModel">车辆型号
+                                <span class="text-danger">*</span> 
+                            </label>
+                            <input type="text" class="form-control required" id="inputCarModel" placeholder="车辆型号">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputCarType">车辆类别</label>
+                            <select class="form-control select2" data-bs-toggle="select2">
+                                <!-- <option value="-1">请选择</option> -->
+                                <option value="1">客车</option>
+                                <option value="2">微型车</option>
+                                <option value="3">小型车</option>
+                                <option value="4">大型车</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">维修信息</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="mb-3 col-md-3">
+                            <label for="inputRepairType">维修类型</label>
+                            <select class="form-control select2" data-bs-toggle="select2">
+                                <!-- <option value="-1">请选择</option> -->
+                                <option value="1">普通</option>
+                                <option value="2">保养</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputWorkType">作业分类</label>
+                            <select class="form-control select2" data-bs-toggle="select2">
+                                <!-- <option value="-1">请选择</option> -->
+                                <option value="1">小修</option>
+                                <option value="2">中修</option>
+                                <option value="3">大修</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputPaymentMethod">结算方式</label>
+                            <select class="form-control select2" data-bs-toggle="select2">
+                                <!-- <option value="-1">请选择</option> -->
+                                <option value="1">现金</option>
+                                <option value="2">刷卡</option>
+                                <option value="3">支票</option>
+                                <option value="4">汇款</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputFaultDescription">故障描述
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control required" id="inputFaultDescription" placeholder="故障描述">
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="inputTime">进场时间
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group date" id="Time" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#Time">
+                                <div class="input-group-text" data-target="#Time" data-toggle="datetimepicker">
+                                    <i class="fa fa-calendar"></i>											</i>
+                                </div>
+                                <span class="font-13 text-muted">e.g "DD/MM/YYYY HH:MM AM/PM"</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>	
+            </div>
+        </div>
+    </div>
+</div>
+<div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;"><button class="btn sw-btn-prev" type="button">Previous</button><button class="btn sw-btn-next disabled" type="button">Next</button></div>

@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "ca": "/Users/e4/Downloads/ca-certificate.crt"
+                }
+            },
+            "previewLimit": 50,
+            "server": "app-3216da81-c71f-49cb-a924-b5a9c3582f4e-do-user-10360375-0.b.db.ondigitalocean.com",
+            "port": 25060,
+            "driver": "PostgreSQL",
+            "name": "app",
+            "database": "info",
+            "username": "info",
+            "password": "b4bKBQ3bZQz4CSXe"
+        }
+    ]
+}
