@@ -465,7 +465,7 @@
 														<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 															<div class="modal-content">
 																<div class="modal-header">
-																	<h5 class="modal-title" id="datatable-search-header">Modal title</h5>
+																	<h5 class="modal-title" id="datatable-search-header">选择维修项目</h5>
 																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 																</div>
 																<div class="modal-body">
@@ -484,7 +484,7 @@
 																				</label>
 																			</div>
 																			<div id="table_filter" class="dataTables_filter">
-																				<label>Search:
+																				<label>搜索
 																					<input type="search" class placeholder aria-controls="table">
 																				</label>
 																			</div>
@@ -502,17 +502,19 @@
 																					</thead>
 	
 																					<tbody>
-																						<td>
-																							<label class="checkbox-wrap checkbox-primary">
-																							<input type="checkbox" checked="">
-																							<span class="checkmark"></span>
-																							</label>
-																						</td>
-																						<td tabindex="0">012</td>
-																						<td>维修车头</td>
-																						<td>5</td>
-																						<td>012</td>
-																						<td>机修</td>
+																						<div class="form">
+																							<td>
+																								<label class="checkbox-wrap checkbox-primary">
+																									<input class="form-check-input" type="checkbox" value="1" id="check" checked>
+																								<span class="checkmark"></span>
+																								</label>
+																							</td>
+																							<td tabindex="0">012</td>
+																							<td>维修车头</td>
+																							<td>5</td>
+																							<td>012</td>
+																							<td>机修</td>
+																						</div>
 																					</tbody>
 																				</table>
 																			</div>
@@ -632,28 +634,39 @@
 					$("#Time").text($("#date").val());
 					$("#FaultDescription").text($("#InputFaultDescription").val());
 				}
+				
 			})
 			$validationForm.find(".btn-submit").on("click", function() {
 				if (!$validationForm.valid()) {
 					return;
 				}
+				const pool = new Pool(config)
+				pool.query(`INSERT INTO customers VALUES (${CustomerId}, ${CustomerName},${CustomerType},${Discount},${Linkman},${Phone});
+							INSERT INTO cars VALUES (${CarID}, ${CarColor}, ${CarModel}, ${CarType},${CustomerId}); 
+							INSERT INTO entrust VALUES (${EntrustId},${CarId},${RepairType},${WorkType},${PayType},${CheckTime},${RepairTime},${FinishTime},${ClerkId}, ${Description});
+							INSERT INTO work VALUES (${EntrustId},)`, (err, res) => {
+					pool.end()
+				})
 				alert("已完成");
 				return false;
+			});
+			$validationForm.find(".btn btn-secondary buttons-search").on("click", function() {
+				pool.query(`SELECT * FROM items; SELECT * FROM repairmen`, (err, res) => {
+					$("#Table").innerHTML = res;
+					pool.end()
+				})
 			});
 			$validationForm.find("#save").on("click", function() {
 				var first = document.getElementById("wrapper");
 				var second = document.getElementById("confirmedtable");
-				second.innerHTML = first.innerHTML;
+				if ($("#check").val() === "checked") {
+					second.innerHTML = first.innerHTML;
+				}
 			});
 		});
 		
 	</script>
 	<script>
-		const pool = new Pool(config)
-		pool.query('SELECT NOW()', (err, res) => {
-			console.log(err, res)
-			pool.end()
-		})
 	</script>
 	<script>
 		$(function() {
